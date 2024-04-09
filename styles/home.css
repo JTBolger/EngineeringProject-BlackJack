@@ -1,0 +1,443 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+img {
+    user-select: none;
+}
+.main {
+    width: 100%;
+    height: 100%;
+    background-color: #232323;
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+#table-rim {
+    z-index: 5;
+    background-color: rgb(79, 0, 125);
+    width: 120%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transition: 0.75s;
+}
+#table {
+    z-index: 6;
+    background-color: rgb(136, 43, 190);
+    width: 120%;
+    height: 45%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    overflow: hidden;
+}
+#title {
+    color: #ffffff;
+    font-family: arial;
+    font-size: 4.5rem;
+    margin-top: 10%;
+    text-shadow: 3px 3px #a5a5a575;
+    transition: 1s;
+    user-select: none;
+}
+#start {
+    width: 10%;
+    height: 20%;
+    border-radius: 10px;
+    background-color: rgb(65, 0, 126);
+    position: absolute;
+    transition: 0.5s;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: menu;
+    font-size: 2.5rem;
+    border-right: 0.5rem solid #00000045;
+    border-bottom: 0.5rem solid #00000045;
+    border-top: 0.5rem solid #ffffff63;
+    border-left: 0.5rem solid #ffffff63;
+    user-select: none;
+}
+#balance {
+    width: 325px;
+    height: 60px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.322);
+    border-bottom-left-radius: 50px;
+    color: white;
+    top: 5%;
+    right: 8%;
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 100;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3rem;
+    padding-top: 1rem;
+}
+#close-menu-button {
+    z-index: 5;
+    width: 325px;
+    height: 0rem;
+    display: flex;
+    color: white;
+    text-shadow: 2px 2px #232323;
+    bottom: -2rem;
+    position: absolute;
+    margin-bottom: -10rem;
+    font: menu;
+    font-size: 2rem;
+    transition: 0.5s;
+    cursor: pointer;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.322);
+    right: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 50px;
+}
+#money{
+    display: flex;
+    margin: 10px;
+    align-items: flex-start;
+    user-select: none;
+    cursor: pointer;
+}
+#total-money {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+/* #balance:hover {
+    transform: translateY(10px);
+} */
+#play-area {
+    width: 750px;
+    height: 100%;
+    background-color: rgba(90, 0, 126, 0.747);
+    position: absolute;
+    display: flex;
+    margin-bottom: -200%;
+    transition: 1.5s;
+    flex-direction: column;
+    z-index: 0;
+    align-items: center;
+    border-top-left-radius: 75%;
+    border-top-right-radius: 75%;
+}
+.dealer-side {
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+#dealer-value, #player-value {
+    position: absolute;
+    width: 6rem;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.322);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    user-select: none;
+    transition: 0.25s;
+}
+#dealer-value {
+    bottom: 50%;
+}
+#player-value {
+    top: 50%;
+}
+.player-side {
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-color: #c00000;
+    border-top-width: 0.25rem;
+    border-top-style: solid;
+}
+#pCard1, #pCard2, #pCard3, #pCard4, #pCard5, #pCard6, #pCard7, #pCard8, #pCard9, #dCard1, #dCard2, #dCard3, #dCard4, #dCard5, #dCard6, #dCard7, #dCard8, #dCard9 {
+    width: 25%;
+    /* height: 80%; */
+    background-color: transparent;
+    margin: 10px;
+    margin-bottom: 25px;
+    z-index: 3;
+    /* position: absolute; */
+    background-color: white;
+    display: none;
+    border-radius: 10px;
+}
+#dCard1, #dCard2, #dCard3, #dCard4, #dCard5, #dCard6, #dCard7, #dCard8, #dCard9 {
+    margin-top: 45px;
+}
+#card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+#card-front, #card-back {
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+#pCard1-front, #pCard2-front, #pCard3-front, #pCard4-front, #pCard5-front, #pCard6-front, #pCard7-front, #pCard8-front, #pCard9-front, #dCard1-front, #dCard2-front, #dCard3-front, #dCard4-front, #dCard5-front, #dCard6-front, #dCard7-front, #dCard8-front, #dCard9-front {
+    background-color: white;
+    border-radius: 10px;
+}
+#card-back {
+    background-color: white;
+    transform: rotateY(180deg);
+}
+
+#bet-space {
+    position: absolute;
+    bottom: 0;
+    width: 75%;
+    height: 20%;
+}
+#subtract-bet, #add-bet, #all-in-bet {
+    position: absolute;
+    width: 5rem;
+    background-color: rgba(0, 0, 0, 0.322);
+    border-radius: 15px;
+    display: flex;
+    color: white;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 3;
+    cursor: pointer;
+    user-select: none;
+}
+#subtract-bet, #add-bet {
+    height: 5rem;
+    font-size: 5rem;
+}
+#all-in-bet {
+    margin-top: 2rem;
+    font-size: 1rem;
+    right: 42%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+#subtract-bet {
+    left: 0;
+}
+#add-bet {
+    right: 0;
+}
+#bet, #confirm-bet {
+    position: absolute;
+    width: 6rem;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.322);
+    bottom: 0;
+    color: white;
+    left: 42%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    user-select: none;
+}
+#confirm-bet {
+    height: 6rem;
+    bottom: 100%;
+    border-radius: 25px;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 3;
+}
+#hit-button, #stay-button, #double-down {
+    position: absolute;
+    width: 5rem;
+    background-color: rgba(0, 0, 0, 0.322);
+    border-radius: 15px;
+    font-size: 2rem;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    cursor: pointer;
+    user-select: none;
+}
+#hit-button {
+    display: none;
+    left: 85%;
+    height: 5rem;
+}
+#double-down {
+    height: 2rem;
+    left: 85%;
+    font-size: 1rem;
+    bottom: 14%;
+    display: none;
+}
+#stay-button {
+    display: none;
+    right: 85%;
+    height: 5rem;
+}
+
+
+#poker-chip {
+    height: 5rem;
+    /* margin-top: 3rem; */
+    margin-left: -30%;
+    user-select: none;
+    cursor: pointer;
+}
+#stats, #about-the-project, #add-funds, #how-to-play, #settings {
+    color: white;
+    /* margin-right: 25%; */
+    font: menu;
+    font-size: 2rem;
+    user-select: none;
+    cursor: pointer;
+    display: none;
+    transition: 0.5s;
+    /* margin-bottom: 100%; */
+}
+#stats-body, #project-body, #add-funds-body, #how-to-play-body, #settings-body {
+    width: 80rem;
+    height: 0rem;
+    background-color: #23232391;
+    position: absolute;
+    margin-left: -36rem;
+    opacity: 0;
+    transition: 0.5s;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    /* margin-left: 7%; */
+}
+.project-body2, #how-to-play-body2, #settings-body2 {
+    width: 75%;
+    height: 90%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 0.5rem;
+    font: menu;
+    font-size: 1.25rem;
+    color: white;
+}
+.project-body2 p, #how-to-play-body2 p{
+    margin-top: 2rem;
+}
+#stats {
+    padding-top: -1rem;
+}
+#add-funds-body {
+    gap: 2rem;
+}
+#add-funds-body input[type="number"] {
+    width: 8rem;
+    height: 1rem;
+    border: 0.25rem solid #777777;
+    border-radius: 15px;
+    font: menu;
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: black;
+}
+
+#add-funds-body input[type="number"]::placeholder {
+    color: #bfbfbf;
+}
+/* input[type="number" i] {
+    writing-mode: horizontal-tb !important;
+    padding-block: 1px;
+    padding-inline: 2px;
+} */
+#add-funds-button, #copy-stats {
+    width: 5rem;
+    height: 2rem;
+    font: menu;
+    font-size: 1.5rem;
+    background-color: rgb(100, 0, 125);
+    text-shadow: 2px 2px 2px black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border-right: 0.25rem solid #00000045;
+    border-bottom: 0.25rem solid #00000045;
+    border-top: 0.25rem solid #ffffff63;
+    border-left: 0.25rem solid #ffffff63;
+}
+#add-fund-debug {
+    color: white;
+    font-size: 1rem;
+}
+#copy-stats {
+    margin-top: 1rem;
+}
+
+.HTP-example {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    background-color: #00000045;
+    justify-content: center;
+    padding: 1.5rem;
+    gap: 3rem;
+}
+
+.HTP-example img {
+    height: 15rem;
+    border-radius: 10px;
+}
+
+#field-1, #field-2 {
+    width: 100%;
+    height: fit-content;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+#field-1 {
+    background-color: #23232385;
+}
+#field-2 {
+    background-color: #36363685;
+}

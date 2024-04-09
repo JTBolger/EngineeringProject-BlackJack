@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en=US">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Blackjack</title>
+        <link href="styles/home.css" rel="stylesheet" />
+        <link rel="icon" href="images/Blackjack game/1.png">
+    </head>
+    <body>
+        <div class="main">
+            <div id="title">Blackjack</div>
+            <div id="table-rim"></div>
+            <div id="table">
+                <div id="balance" onclick="openMenu()">
+                    <div id="total-money">
+                        <img src="images/red-chip.png" id="poker-chip">
+                        <div id="money">$--.--</div>
+                    </div>
+                    <div id="stats"onclick="openStats()">STATS
+                        <div id="stats-body">
+                            <div id="hands">Hands : --</div>
+                            <div id="player-wins">Player Wins : --</div>
+                            <div id="dealer-wins">Dealer Wins : --</div>
+                            <div id="player-blackjacks">Player Blackjacks : --</div>
+                            <div id="dealer-blackjacks">Dealer Blackjacks : --</div>
+                            <div id="double-downs-won">Double Downs Won : --</div>
+                            <div id="current-streak">Current Streak : --</div>
+                            <div>-</div>
+                            <div id="money-won">Amount Earned : $--.--</div>
+                            <div id="funds-added">Funds Added : $--.--</div>
+                            <div id="copy-stats" onclick="copyStats()">COPY</div>
+                        </div>
+                    </div>
+                    <div id="about-the-project"onclick="openAbout()">ABOUT
+                        <div id="project-body">
+                            <div class="project-body2">
+                                <p>I am excited to share with you a recent project I completed – a Blackjack game created solely with JavaScript, CSS, and HTML. This mini project was a personal endeavor aimed at challenging and refining my programming skills.</p>
+                                
+                                <p>I'm John-Thomas Bolger, a student at Tarleton State University, where I am currently pursuing a degree in Computer Science with a specialization in Software Engineering. Amidst my Fall 2023 classes, I dedicated my free time to develop this Blackjack game.</p>
+                                
+                                <p>Through this project, I aimed not only to test my coding capabilities but also to enhance and apply what I've learned in a practical setting. Crafting this game provided an opportunity for hands-on learning, allowing me to develop deeper into JavaScript, CSS styling, and HTML structure.</p>
+                                
+                                <p>Thank you for taking the time to explore my project. I am enthusiastic about continuing to expand my knowledge and skills in the field of software engineering.</p>
+                                
+                                <p>Thank you,<br>John-Thomas Bolger<br>Computer Science - Software Engineering</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="add-funds"onclick="openAddFunds()">ADD FUNDS
+                        <div id="add-funds-body">
+                            <div><input type="number" id="add-funds-box" placeholder="Number"></div>
+                            <div id="add-funds-button" onclick="addFund()">ADD</div>
+                            <div id="add-fund-debug"></div>
+                        </div>
+                    </div>
+                    <div id="how-to-play" onclick="openHowToPlay()">HOW TO PLAY
+                        <div id="how-to-play-body">
+                            <div id="how-to-play-body2">
+                                <p>In blackjack, the player faces off against the dealer. The primary goal for the player is to reach a total as close to 21 as possible without exceeding it, while the dealer must draw another card (HIT) if their hand value is less than 17. The player has two main choices: HIT (request another card) or STAY (keep the current hand). As long as the player's total value remains under 21, they have the option to HIT for additional cards or choose to STAY if they feel their hand is strong enough to beat the dealer.</p>
+                                
+                                <p style="font-weight: bolder;">Special Moves:</p>
+                                <li style="margin-top: 0.5rem;">Doubling Down: If the player has only two cards and hasn’t HIT for a third card, they may have the option to double down. Doubling down is available only if the player's current balance matches their initial bet. When a player doubles down, they receive one additional card, and their bet size doubles.</li>
+                                <li style="margin-top: 0.5erm;">Splitting Cards: Unfortunately, there isn't a feature to split cards of the same value in the current version. This feature might be added in future updates.</li>
+
+                                <p style="font-weight: bolder;">Card Values:</p>
+                                <li style="margin-top: 0.5rem;">Cards from 2 to 10 hold their face value.</li>
+                                <li style="margin-top: 0.5rem;">Jacks (J), Queens (Q), and Kings (K) are each worth 10.</li>
+                                <li style="margin-top: 0.5rem;">Aces (A) can be valued as either 1 or 11, depending on the other cards in the hand to optimize the total hand value.</li>
+                                <div class="HTP-example">
+                                    <img src="images/Blackjack game/8.png">
+                                    <img src="images/Blackjack game/35.png">
+                                </div>
+                                <p>In this example, the value of the cards add up to 15.</p>
+                                <div class="HTP-example" style="margin-top: 2rem;">
+                                    <img src="images/Blackjack game/43.png">
+                                    <img src="images/Blackjack game/15.png">
+                                </div>
+                                <p>In this example, the value of the cards add up to 4 or 14.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="settings" onclick="openSettings()">SETTINGS
+                        <div id="settings-body">
+                            <div id="settings-body2">
+                                <div id="field-1">
+                                    <p>Bet Increment :</p>
+                                    <input type="range" id="betInc" name="myRange" min="10" max="100" step="10" value="10">
+                                    <p id="betIncValue">$10.00</p>
+                                </div>
+                                <div id="field-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="close-menu-button" onclick="closeMenu()">CLOSE</div>
+                <div id="start" onclick="startGame()">START</div>
+                <div id="play-area">
+                    <div id="bet-space">
+                        <div id="subtract-bet" onclick="subtractBet()">-</div>
+                        <div id="bet"><div id="wager">$--.--</div></div>
+                        <div id="confirm-bet" onclick="confirmBet()">BET</div>
+                        <div id="add-bet" onclick="addBet()">+</div>
+                        <div id="all-in-bet" onclick="allIn()">ALL IN</div>
+                    </div>
+                    <div class="dealer-side">
+                        <div id="dealer-value">00</div>
+                        <div id="card" onclick="flipCard()">
+                            <div id="card-inner">
+                                <div id="card-front">  <img src="images/PlayingCardBack.png" style="width: 100%; height: 100%; border-radius:1 0px;">  </div>
+                                <div id="card-back"><img></div>
+                            </div>
+                        </div>
+                        <div id="dCard1">
+                            <div id="card-inner">
+                                <div id="dCard1-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="dCard2">
+                            <div id="card-inner">
+                                <div id="dCard2-front">-text3-</div>
+                            </div>
+                        </div>
+                        <div id="dCard3">
+                            <div id="card-inner">
+                                <div id="dCard3-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="dCard4">
+                            <div id="card-inner">
+                                <div id="dCard4-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="dCard5">
+                            <div id="card-inner">
+                                <div id="dCard5-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="dCard6">
+                            <div id="card-inner">
+                                <div id="dCard6-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="dCard7">
+                            <div id="card-inner">
+                                <div id="dCard7-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="dCard8">
+                            <div id="card-inner">
+                                <div id="dCard8-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="dCard9">
+                            <div id="card-inner">
+                                <div id="dCard9-front">-text3-<img></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-side">
+                        <div id="player-value">00</div>
+                        <div id="pCard1">
+                            <div id="card-inner">
+                                <div id="pCard1-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="pCard2">
+                            <div id="card-inner">
+                                <div id="pCard2-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="pCard3">
+                            <div id="card-inner">
+                                <div id="pCard3-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="pCard4">
+                            <div id="card-inner">
+                                <div id="pCard4-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="pCard5">
+                            <div id="card-inner">
+                                <div id="pCard5-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="pCard6">
+                            <div id="card-inner">
+                                <div id="pCard6-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="pCard7">
+                            <div id="card-inner">
+                                <div id="pCard7-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="pCard8">
+                            <div id="card-inner">
+                                <div id="pCard8-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="pCard9">
+                            <div id="card-inner">
+                                <div id="pCard9-front">-text3-<img></div>
+                            </div>
+                        </div>
+                        <div id="hit-button" onclick="HIT()">HIT</div>
+                        <div id="double-down"onclick="DOUBLE()">DOUBLE</div>
+                        <div id="stay-button" onclick="STAY()">STAY</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>
