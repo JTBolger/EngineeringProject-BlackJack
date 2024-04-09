@@ -42,9 +42,23 @@ img {
     overflow: hidden;
 }
 #title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#title h1{
     color: #ffffff;
     font-family: arial;
     font-size: 4.5rem;
+    margin-top: 10%;
+    text-shadow: 3px 3px #a5a5a575;
+    transition: 1s;
+    user-select: none;
+}
+#title h2 {
+    color: #ffffff;
+    font-family: arial;
+    font-size: 1.5rem;
     margin-top: 10%;
     text-shadow: 3px 3px #a5a5a575;
     transition: 1s;
