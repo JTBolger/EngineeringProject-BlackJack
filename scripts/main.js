@@ -36,7 +36,7 @@ function flipCard() {
     card.style.transform = "rotateY(180deg)"
 }
 
-var hands = 0
+var hands = 0;
 var playerWins = 0
 var dealerWins = 0
 var playerBlackjacks = 0
